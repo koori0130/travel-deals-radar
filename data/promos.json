@@ -1,0 +1,52 @@
+{
+  "generatedAt": "2026-11-07T06:04:09.259Z",
+  "staleAfterDays": 3,
+  "sources": [
+    {
+      "id": "tigerair-tw",
+      "airline": "Tigerair Taiwan",
+      "airlineZh": "台灣虎航",
+      "method": "manual",
+      "siteUrl": "https://www.tigerairtw.com/zh-TW/",
+      "lastSuccessAt": null,
+      "stale": true
+    },
+    {
+      "id": "peach",
+      "airline": "Peach",
+      "airlineZh": "樂桃航空",
+      "method": "manual",
+      "siteUrl": "https://www.flypeach.com/tw",
+      "lastSuccessAt": null,
+      "stale": true
+    },
+    {
+      "id": "scoot",
+      "airline": "Scoot",
+      "airlineZh": "酷航",
+      "method": "manual",
+      "siteUrl": "https://www.flyscoot.com/zhtw",
+      "lastSuccessAt": null,
+      "stale": true
+    },
+    {
+      "id": "jetstar",
+      "airline": "Jetstar",
+      "airlineZh": "捷星航空",
+      "method": "manual",
+      "siteUrl": "https://www.jetstar.com/tw/zh/home",
+      "lastSuccessAt": null,
+      "stale": true
+    },
+    {
+      "id": "airasia",
+      "airline": "AirAsia",
+      "airlineZh": "亞洲航空",
+      "method": "manual",
+      "siteUrl": "https://www.airasia.com/",
+      "lastSuccessAt": null,
+      "stale": true
+    }
+  ],
+  "promos": []
+}
