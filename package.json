@@ -1,0 +1,16 @@
+{
+  "name": "travel-deals-radar",
+  "version": "0.1.0",
+  "private": true,
+  "description": "旅行說飛就飛：台北出發的機票優惠查找頁面與每日資料管線",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test test/",
+    "fetch:fares": "node scripts/fetch-fares.js",
+    "fetch:promos": "node scripts/fetch-promos.js",
+    "add:promo": "node scripts/add-promo.js"
+  }
+}

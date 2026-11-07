@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>旅行說飛就飛</title>
+  <meta name="description" content="從台北桃園與松山出發，一次看未來一年最便宜的目的地與一個月內的航空公司特價。">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1>旅行說飛就飛</h1>
+      <p class="lead">從台北出發，不用先想去哪，直接看哪裡最便宜。</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="controls" aria-label="篩選">
+      <div class="control">
+        <span class="control-label" id="origin-label">出發機場</span>
+        <div class="chips" role="group" aria-labelledby="origin-label" id="origin-chips"></div>
+      </div>
+      <div class="control">
+        <span class="control-label" id="trip-label">票種</span>
+        <div class="chips" role="group" aria-labelledby="trip-label" id="trip-chips"></div>
+      </div>
+      <div class="control" id="airline-control" hidden>
+        <span class="control-label" id="airline-label">航空公司（可複選）</span>
+        <div class="chips" role="group" aria-labelledby="airline-label" id="airline-chips"></div>
+      </div>
+    </section>
+
+    <div class="tabs" role="tablist" aria-label="檢視" id="tabs"></div>
+
+    <div id="notices" class="notices" aria-live="polite"></div>
+    <div id="content"></div>
+    <p class="explore" id="explore"></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p id="generated"></p>
+      <p>價格來自每日更新的資料與航空公司公開促銷，可能與實際訂購頁不同，請以訂購頁價格為準。本站只提供查找與連結，不處理訂票或付款，也不收集個人資料。</p>
+    </div>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

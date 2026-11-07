@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-11-07T04:00:00.000Z",
+  "staleAfterDays": 3,
+  "sources": [
+    { "id": "tigerair-tw", "airline": "Tigerair Taiwan", "airlineZh": "台灣虎航", "method": "manual", "siteUrl": "https://www.tigerairtw.com/", "lastSuccessAt": "2026-11-06T04:00:00.000Z", "stale": false },
+    { "id": "peach", "airline": "Peach", "airlineZh": "樂桃航空", "method": "manual", "siteUrl": "https://www.flypeach.com/tw", "lastSuccessAt": "2026-11-07T01:00:00.000Z", "stale": false },
+    { "id": "scoot", "airline": "Scoot", "airlineZh": "酷航", "method": "manual", "siteUrl": "https://www.flyscoot.com/", "lastSuccessAt": "2026-11-01T04:00:00.000Z", "stale": true },
+    { "id": "jetstar", "airline": "Jetstar", "airlineZh": "捷星航空", "method": "manual", "siteUrl": "https://www.jetstar.com/tw/zh/home", "lastSuccessAt": "2026-11-05T04:00:00.000Z", "stale": false },
+    { "id": "airasia", "airline": "AirAsia", "airlineZh": "亞洲航空", "method": "manual", "siteUrl": "https://www.airasia.com/", "lastSuccessAt": null, "stale": true }
+  ],
+  "promos": [
+    { "airline": "Tigerair Taiwan", "sourceId": "tigerair-tw", "origin": "TPE", "destination": "NRT", "price": 3000, "currency": "TWD", "tripType": "oneWay", "taxIncluded": false, "travelFrom": "2026-12-01", "travelTo": "2027-03-31", "saleStart": "2026-11-06T16:00:00.000Z", "saleEnd": "2026-11-08T15:59:59.000Z", "sourceUrl": "https://www.tigerairtw.com/", "fetchedAt": "2026-11-06T04:00:00.000Z", "manual": true },
+    { "airline": "Scoot", "sourceId": "scoot", "origin": "TPE", "destination": "SIN", "price": 3000, "currency": "TWD", "tripType": "oneWay", "taxIncluded": true, "travelFrom": "2027-01-10", "travelTo": "2027-06-30", "saleStart": null, "saleEnd": "2026-11-17T15:59:59.000Z", "sourceUrl": "https://www.flyscoot.com/", "fetchedAt": "2026-11-01T04:00:00.000Z", "manual": true },
+    { "airline": "Peach", "sourceId": "peach", "origin": "TPE", "destination": "KIX", "price": 1780, "currency": "TWD", "tripType": "oneWay", "taxIncluded": false, "travelFrom": "2026-12-01", "travelTo": "2027-03-31", "saleStart": null, "saleEnd": "2026-11-10T15:59:59.000Z", "sourceUrl": "https://www.flypeach.com/tw", "fetchedAt": "2026-11-07T01:00:00.000Z", "manual": true },
+    { "airline": "AirAsia", "sourceId": "airasia", "origin": "TPE", "destination": "BKK", "price": 2400, "currency": "TWD", "tripType": "oneWay", "taxIncluded": true, "travelFrom": "2026-12-01", "travelTo": "2027-02-28", "saleStart": null, "saleEnd": null, "sourceUrl": "https://www.airasia.com/", "fetchedAt": "2026-11-01T04:00:00.000Z", "manual": true },
+    { "airline": "Jetstar", "sourceId": "jetstar", "origin": "TSA", "destination": "HND", "price": 5200, "currency": "TWD", "tripType": "roundTrip", "taxIncluded": true, "travelFrom": "2026-11-20", "travelTo": "2027-01-31", "saleStart": null, "saleEnd": "2026-11-12T15:59:59.000Z", "sourceUrl": "https://www.jetstar.com/tw/zh/home", "fetchedAt": "2026-11-05T04:00:00.000Z", "manual": true }
+  ]
+}

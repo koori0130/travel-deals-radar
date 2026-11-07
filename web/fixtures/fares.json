@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-11-07T04:00:00.000Z",
+  "source": "fixture",
+  "fares": [
+    { "origin": "TPE", "destination": "BKK", "month": "2026-12", "departureDate": "2026-12-09", "price": 5400, "currency": "TWD", "tripType": "oneWay", "taxIncluded": true, "bookingUrl": "https://www.google.com/travel/flights?hl=zh-TW", "stale": false, "updatedAt": "2026-11-07T04:00:00.000Z" },
+    { "origin": "TPE", "destination": "BKK", "month": "2027-06", "departureDate": "2027-06-15", "price": 4800, "currency": "TWD", "tripType": "oneWay", "taxIncluded": true, "bookingUrl": "https://www.google.com/travel/flights?hl=zh-TW", "stale": false, "updatedAt": "2026-11-07T04:00:00.000Z" },
+    { "origin": "TPE", "destination": "ICN", "month": "2026-11", "departureDate": "2026-11-18", "price": 6100, "currency": "TWD", "tripType": "oneWay", "taxIncluded": true, "bookingUrl": "https://www.google.com/travel/flights?hl=zh-TW", "stale": false, "updatedAt": "2026-11-07T04:00:00.000Z" },
+    { "origin": "TPE", "destination": "ICN", "month": "2027-07", "departureDate": "2027-07-06", "price": 5100, "currency": "TWD", "tripType": "oneWay", "taxIncluded": true, "bookingUrl": "https://www.google.com/travel/flights?hl=zh-TW", "stale": false, "updatedAt": "2026-11-07T04:00:00.000Z" },
+    { "origin": "TPE", "destination": "NRT", "month": "2026-11", "departureDate": "2026-11-25", "price": 7000, "currency": "TWD", "tripType": "oneWay", "taxIncluded": true, "bookingUrl": "https://www.google.com/travel/flights?hl=zh-TW", "stale": false, "updatedAt": "2026-11-07T04:00:00.000Z" },
+    { "origin": "TPE", "destination": "NRT", "month": "2027-03", "departureDate": "2027-03-10", "price": 6200, "currency": "TWD", "tripType": "oneWay", "taxIncluded": true, "bookingUrl": "https://www.google.com/travel/flights?hl=zh-TW", "stale": false, "updatedAt": "2026-11-07T04:00:00.000Z" },
+    { "origin": "TPE", "destination": "KIX", "month": "2027-01", "departureDate": "2027-01-20", "price": 5800, "currency": "TWD", "tripType": "oneWay", "taxIncluded": true, "bookingUrl": "https://www.google.com/travel/flights?hl=zh-TW", "stale": false, "updatedAt": "2026-11-07T04:00:00.000Z" },
+    { "origin": "TSA", "destination": "HND", "month": "2026-12", "departureDate": "2026-12-14", "price": 4300, "currency": "TWD", "tripType": "oneWay", "taxIncluded": true, "bookingUrl": "https://www.google.com/travel/flights?hl=zh-TW", "stale": false, "updatedAt": "2026-11-07T04:00:00.000Z" },
+    { "origin": "TSA", "destination": "HND", "month": "2027-02", "departureDate": "2027-02-09", "price": 3900, "currency": "TWD", "tripType": "oneWay", "taxIncluded": true, "bookingUrl": "https://www.google.com/travel/flights?hl=zh-TW", "stale": false, "updatedAt": "2026-11-07T04:00:00.000Z" },
+    { "origin": "TPE", "destination": "SIN", "month": "2027-05", "departureDate": "2027-05-11", "price": 5600, "currency": "TWD", "tripType": "oneWay", "taxIncluded": true, "bookingUrl": "https://www.google.com/travel/flights?hl=zh-TW", "stale": true, "updatedAt": "2026-11-03T04:00:00.000Z" },
+    { "origin": "TPE", "destination": "NRT", "month": "2027-03", "departureDate": "2027-03-10", "price": 9800, "currency": "TWD", "tripType": "roundTrip", "taxIncluded": true, "bookingUrl": "https://www.google.com/travel/flights?hl=zh-TW", "stale": false, "updatedAt": "2026-11-07T04:00:00.000Z" }
+  ],
+  "history": {}
+}

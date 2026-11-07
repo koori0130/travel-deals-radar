@@ -1,0 +1,80 @@
+name: Daily update and deploy
+
+on:
+  schedule:
+    - cron: "0 20 * * *" # 04:00 Taipei time
+  workflow_dispatch:
+
+concurrency:
+  group: daily-update
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    outputs:
+      fares_outcome: ${{ steps.fares.outcome }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run tests
+        run: npm test
+
+      - name: Fetch fares
+        id: fares
+        continue-on-error: true
+        env:
+          IGNAV_API_KEY: ${{ secrets.IGNAV_API_KEY }}
+        run: node scripts/fetch-fares.js
+
+      - name: Build promo output
+        run: node scripts/fetch-promos.js
+
+      - name: Commit updated data
+        run: |
+          git config user.name "radar-bot"
+          git config user.email "radar-bot@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "no data changes"
+          else
+            git commit -m "chore: daily data update"
+            git push
+          fi
+
+      - name: Build site
+        run: node scripts/build-site.js
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: update
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+  report:
+    # Fails the run, after deploying, when the fare fetch failed so the problem is visible.
+    needs: [update, deploy]
+    if: needs.update.outputs.fares_outcome == 'failure'
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Fare fetch failed; the site was deployed with the previous fare data."
+          exit 1

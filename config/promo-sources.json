@@ -1,0 +1,57 @@
+{
+  "_comment": "第一批航空公司促銷來源。method 為 manual、feed 或 page。termsReviewed 為 false 時，page 方式一律拒絕自動抓取（見 airline-promo-feed 規格）。2026-11-07 的檢查結果記在各來源的 notes。",
+  "staleAfterDays": 3,
+  "sources": [
+    {
+      "id": "tigerair-tw",
+      "airline": "Tigerair Taiwan",
+      "airlineZh": "台灣虎航",
+      "method": "manual",
+      "siteUrl": "https://www.tigerairtw.com/",
+      "promoUrl": null,
+      "termsReviewed": false,
+      "notes": "robots.txt 允許全部路徑（User-agent *，Allow /，無 Disallow），但 robots.txt 不等於使用條款，條款尚未閱讀。促銷常有會員優先購票與專屬連結，價格多為單程未稅。促銷頁網址待人工確認。"
+    },
+    {
+      "id": "peach",
+      "airline": "Peach",
+      "airlineZh": "樂桃航空",
+      "method": "manual",
+      "siteUrl": "https://www.flypeach.com/tw",
+      "promoUrl": null,
+      "termsReviewed": false,
+      "notes": "robots.txt 在檢查時請求逾時，未取得內容。促銷多為限時單程價，常為未稅價。條款尚未閱讀。促銷頁網址待人工確認。"
+    },
+    {
+      "id": "scoot",
+      "airline": "Scoot",
+      "airlineZh": "酷航",
+      "method": "manual",
+      "siteUrl": "https://www.flyscoot.com/",
+      "promoUrl": null,
+      "termsReviewed": false,
+      "notes": "檢查時 robots.txt 回傳 HTTP 403，表示網站會擋自動化請求，不適合頁面抓取。條款尚未閱讀。"
+    },
+    {
+      "id": "jetstar",
+      "airline": "Jetstar",
+      "airlineZh": "捷星航空",
+      "method": "manual",
+      "siteUrl": "https://www.jetstar.com/tw/zh/home",
+      "promoUrl": null,
+      "termsReviewed": false,
+      "notes": "robots.txt 在檢查時請求逾時，未取得內容。網站提供電子報訂閱，細節待確認，可作為合法的官方入口。條款尚未閱讀。"
+    },
+    {
+      "id": "airasia",
+      "airline": "AirAsia",
+      "airlineZh": "亞洲航空",
+      "method": "manual",
+      "siteUrl": "https://www.airasia.com/",
+      "promoUrl": null,
+      "newsroomUrl": "https://newsroom.airasia.com/",
+      "termsReviewed": false,
+      "notes": "robots.txt 禁止 /api/ 與 /booking/select/ 等路徑，促銷頁不在禁止清單中，但條款尚未閱讀。官方新聞室 newsroom.airasia.com 會公告促銷，可作為官方入口。"
+    }
+  ]
+}

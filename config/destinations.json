@@ -1,0 +1,12 @@
+{
+  "_comment": "價格查詢的出發機場與熱門目的地。新增目的地只需加一個三字母 IATA 代碼。TSA 實際只飛部分航線，沒有的航線會回傳無資料。",
+  "priceSource": "ignav",
+  "origins": ["TPE", "TSA"],
+  "destinations": [
+    "NRT", "HND", "KIX", "NGO", "CTS", "FUK", "OKA", "UKB", "HIJ", "SDJ",
+    "ICN", "GMP", "PUS", "CJU",
+    "BKK", "DMK", "CNX", "HKT", "SGN", "HAN", "DAD", "PQC",
+    "SIN", "KUL", "MNL", "CEB", "DPS", "HKG", "MFM", "PEK", "PVG",
+    "LAX", "SFO", "SYD"
+  ]
+}
