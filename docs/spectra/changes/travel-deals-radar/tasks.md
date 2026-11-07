@@ -16,7 +16,7 @@
 
 - [x] 3.1 實作 Normalized promo record 轉換與 Expired promo removal；saleEnd 缺少時存 null 且不補造；驗證：轉換測試與過期剔除測試。 [after: 1.3]
 - [x] 3.2 實作「促銷來源分三種取得方式」與 Terms check before automated fetching：未記錄條款已審閱的頁面抓取來源拒絕執行並說明原因；驗證：拒絕執行的測試。 [after: 3.1, 1.2]
-- [ ] 3.3 實作 First-batch airline coverage 的 5 個來源與 `node scripts/fetch-promos.js`；驗證：列出來源指令顯示 5 家與各自取得方式，以固定頁面樣本測試每個來源的解析結果。 [after: 3.2]
+- [x] 3.3 實作 First-batch airline coverage 的 5 個來源與 `node scripts/fetch-promos.js`；逐家讀完條款後（2026-11-07）五家都沒有允許自動抓取，因此全部維持人工整理（method 為 manual），不寫頁面解析器；條款檢查結果（termsReviewed、termsAllowFetch、termsCheckedAt、termsUrl、termsVerdict）記在 `config/promo-sources.json`。驗證：`node scripts/fetch-promos.js --list` 顯示 5 家與各自取得方式；`test/promo-pipeline.test.js` 確認每家都有條款檢查紀錄且 termsAllowFetch 為 false，並確認條款不允許時抓取被拒絕。 [after: 3.2]
 - [x] 3.4 實作 Manual promo entry（`node scripts/add-promo.js`）；驗證：新增 saleEnd 在未來的人工促銷後，`data/promos.json` 含該筆且 manual 為 true。 [after: 3.1]
 - [x] 3.5 實作 Stale source warning（3 天門檻範例）；驗證：2 天前為 fresh、4 天前為 stale 的測試，且 `data/promos.json` 含各來源 lastSuccessAt。 [after: 3.3]
 

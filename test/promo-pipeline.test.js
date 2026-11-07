@@ -34,16 +34,38 @@ test("the shipped config lists the five first-batch airlines with their acquisit
   assert.ok(rows.every((r) => typeof r.termsReviewed === "boolean"));
 });
 
+test("every first-batch source has a recorded terms check and none allows automated fetching", async () => {
+  const config = await loadPromoSources(REAL_CONFIG);
+  for (const s of config.sources) {
+    assert.equal(s.termsReviewed, true, `${s.id} terms reviewed`);
+    assert.equal(s.termsAllowFetch, false, `${s.id} allow fetch`);
+    assert.match(s.termsCheckedAt, /^\d{4}-\d{2}-\d{2}$/);
+    assert.ok(["prohibited", "no-permission", "not-found"].includes(s.termsVerdict), `${s.id} verdict`);
+    assert.equal(s.method, "manual");
+  }
+});
+
+test("a page source whose reviewed terms do not allow fetching is refused with that reason", () => {
+  const gate = checkPageFetchAllowed({ id: "x", method: "page", termsReviewed: true, termsAllowFetch: false });
+  assert.equal(gate.allowed, false);
+  assert.match(gate.reason, /do not allow automated fetching/);
+});
+
+test("allowing fetching without a terms review is rejected by the config check", async () => {
+  const root = await makeRoot((c) => { c.sources[0].termsReviewed = false; c.sources[0].termsAllowFetch = true; });
+  await assert.rejects(runPromos({ root, now: NOW, log() {} }), /termsAllowFetch cannot be true/);
+});
+
 test("a page source without a recorded terms review is refused", () => {
   const gate = checkPageFetchAllowed({ id: "x", method: "page", termsReviewed: false });
   assert.equal(gate.allowed, false);
   assert.match(gate.reason, /terms of use have not been reviewed/);
-  assert.equal(checkPageFetchAllowed({ id: "x", method: "page", termsReviewed: true }).allowed, true);
+  assert.equal(checkPageFetchAllowed({ id: "x", method: "page", termsReviewed: true, termsAllowFetch: true }).allowed, true);
   assert.equal(checkPageFetchAllowed({ id: "x", method: "manual", termsReviewed: false }).allowed, true);
 });
 
-test("an unreviewed page source never runs its parser and reports the reason", async () => {
-  const root = await makeRoot((c) => { c.sources[0].method = "page"; });
+test("a page source whose terms are unreviewed or disallow fetching never runs its parser and reports the reason", async () => {
+  const root = await makeRoot((c) => { c.sources[0].method = "page"; c.sources[0].termsReviewed = false; c.sources[0].termsAllowFetch = false; });
   let called = false;
   const parsers = { [JSON.parse(await readFile(REAL_CONFIG, "utf8")).sources[0].id]: async () => { called = true; return []; } };
   const { notes } = await runPromos({ root, now: NOW, parsers, log() {} });
@@ -51,8 +73,8 @@ test("an unreviewed page source never runs its parser and reports the reason", a
   assert.ok(notes.some((n) => /refused: .*terms of use have not been reviewed/.test(n)));
 });
 
-test("a reviewed page source runs its parser and counts as a successful update", async () => {
-  const root = await makeRoot((c) => { c.sources[0].method = "page"; c.sources[0].termsReviewed = true; });
+test("a page source that is reviewed and allowed runs its parser and counts as a successful update", async () => {
+  const root = await makeRoot((c) => { c.sources[0].method = "page"; c.sources[0].termsReviewed = true; c.sources[0].termsAllowFetch = true; });
   const id = JSON.parse(await readFile(REAL_CONFIG, "utf8")).sources[0].id;
   const parsers = {
     [id]: async () => [{ origin: "TPE", destination: "KIX", price: 1780, currency: "TWD", tripType: "oneWay", taxIncluded: true, sourceUrl: "https://example.com/p" }],
@@ -109,7 +131,7 @@ test("a source goes stale once its last update is older than the threshold", asy
 });
 
 test("a failed source keeps its previous lastSuccessAt", async () => {
-  const root = await makeRoot((c) => { c.sources[0].method = "page"; c.sources[0].termsReviewed = true; });
+  const root = await makeRoot((c) => { c.sources[0].method = "page"; c.sources[0].termsReviewed = true; c.sources[0].termsAllowFetch = true; });
   const id = JSON.parse(await readFile(REAL_CONFIG, "utf8")).sources[0].id;
   const ok = { [id]: async () => [] };
   await runPromos({ root, now: new Date("2026-11-05T04:00:00Z"), parsers: ok, log() {} });

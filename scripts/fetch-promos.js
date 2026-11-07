@@ -30,6 +30,7 @@ export function describeSources(config) {
     airline: s.airline,
     method: s.method,
     termsReviewed: s.termsReviewed,
+    termsAllowFetch: s.termsAllowFetch,
   }));
 }
 
@@ -121,7 +122,7 @@ async function main() {
     if (process.argv.includes("--list")) {
       const config = await loadPromoSources(join(ROOT, "config", "promo-sources.json"));
       for (const s of describeSources(config)) {
-        console.log(`${s.id}\t${s.airline}\t${s.method}\ttermsReviewed=${s.termsReviewed}`);
+        console.log(`${s.id}\t${s.airline}\t${s.method}\ttermsReviewed=${s.termsReviewed}\tallowFetch=${s.termsAllowFetch}`);
       }
       return;
     }

@@ -17,7 +17,7 @@ GitHub Pages                 靜態頁面，前端只讀 data/*.json
 ```
 
 - 價格來源目前是 Ignav 的 `cheapest-dates`（以官方文件為準，**尚未用真實金鑰實測**）。
-- 促銷來源第一批是虎航、樂桃、酷航、捷星、亞洲航空，目前全部是人工整理（`config/promo-sources.json`），因為這些網站的使用條款還沒逐家確認。
+- 促銷來源第一批是虎航、樂桃、酷航、捷星、亞洲航空，目前全部是人工整理（`config/promo-sources.json`），因為 2026-11-07 逐家讀過條款，沒有任何一家允許自動抓取（亞洲航空與捷星明寫禁止，樂桃與酷航未授權，虎航找不到網站條款）。
 - 資料是每日快取，價格以訂購頁為準。
 
 ## 需求
@@ -73,7 +73,7 @@ node scripts/add-promo.js --source peach --checked
 
 ## 自動抓取航空公司頁面的規則
 
-`config/promo-sources.json` 的來源若設為 `page`，必須先把 `termsReviewed` 改成 `true`，代表你已讀過該網站條款並確認允許自動抓取。沒有確認前，系統會拒絕執行並說明原因。目前沒有啟用任何頁面解析器。
+`config/promo-sources.json` 的來源若設為 `page`，必須同時滿足 `termsReviewed` 與 `termsAllowFetch` 都是 `true`：前者代表條款已讀過，後者代表條款允許自動抓取。任一不是 `true`，系統會拒絕執行並說明原因。目前五家的 `termsAllowFetch` 都是 `false`（結論與條款網址記在各來源的 `termsVerdict`、`termsUrl`、`notes`），也沒有啟用任何頁面解析器。航空公司之後若改變條款，或你取得書面同意，再改這兩個欄位並新增對應的解析器。
 
 ## 部署到 GitHub Pages（每日自動更新）
 
