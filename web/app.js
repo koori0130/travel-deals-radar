@@ -133,7 +133,7 @@ function emptyState(text) {
 }
 
 function renderYear() {
-  if (!state.fares) return emptyState(state.faresError ?? "沒有票價資料。");
+  if (!state.fares) return emptyState("目前沒有可顯示的票價資料。");
   const groups = rankDestinations(state.fares.fares ?? [], state.origins);
   const list = groups[state.tripType];
   if (list.length === 0) return emptyState(`目前沒有${TRIP_LABEL[state.tripType]}票價資料。`);
@@ -203,7 +203,7 @@ function promoCard(p) {
 }
 
 function renderPromos() {
-  if (!state.promos) return emptyState(state.promosError ?? "沒有促銷資料。");
+  if (!state.promos) return emptyState("目前沒有可顯示的促銷資料。");
   const groups = promoList(state.promos.promos ?? [], { origins: state.origins, now: NOW, airlines: state.airlines });
   const list = groups[state.tripType];
   if (list.length === 0) {

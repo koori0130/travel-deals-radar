@@ -83,6 +83,9 @@ node scripts/add-promo.js --source peach --checked
 2. 在倉庫的 Settings → Secrets and variables → Actions 新增 Repository secret，名稱 `IGNAV_API_KEY`，值為你的金鑰。
 3. 在 Settings → Pages，把 Source 設為 GitHub Actions。
 4. 到 Actions 分頁，手動執行 `Daily update and deploy` 一次，確認成功。
+5. 網站位址：`https://koori0130.github.io/travel-deals-radar/`
+
+還沒設定 `IGNAV_API_KEY` 時，「Fetch fares」會失敗，`report` 工作會顯示紅色，網站仍會部署（年度視圖顯示票價資料載入失敗）。設定金鑰後重新執行一次即可。機器人會把更新後的 `data/` 提交到 `main`，在本機繼續修改前請先 `git pull`。
 
 注意：免費方案的 GitHub Pages 通常需要公開倉庫。金鑰存在 Secrets，不會出現在程式碼裡；但 `data/` 內的票價與歷史會是公開的。
 
