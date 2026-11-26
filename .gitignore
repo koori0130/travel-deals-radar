@@ -1,4 +1,2 @@
-.spectra/
 node_modules/
 dist/
-docs/spectra/.vector-search.db*

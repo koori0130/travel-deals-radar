@@ -1,5 +1,5 @@
 {
-  "_comment": "第一批航空公司促銷來源。method 為 manual、feed 或 page。page 方式必須同時 termsReviewed 與 termsAllowFetch 為 true 才會自動抓取（見 airline-promo-feed 規格）。條款審查日 2026-11-07：五家都沒有允許自動抓取，全部維持人工整理。",
+  "_comment": "第一批航空公司促銷來源。method 為 manual、feed 或 page。page 方式必須同時 termsReviewed 與 termsAllowFetch 為 true 才會自動抓取（見 travel-airline-promo-feed 規格）。條款審查日 2026-11-07：五家都沒有允許自動抓取，全部維持人工整理。",
   "staleAfterDays": 3,
   "sources": [
     {
